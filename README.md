@@ -7,6 +7,6 @@ hom_decrease_2.ipynb: examination of wave intensity, 1-5-10 year dropoff and inc
 
 viz/ *.html: the only important ones you should care about:
 
-    - merged_viz.html: dropoffs and increases by 1-5-10 years and by hex clusters
-    - increase_decade_merged.html: maximum increase by decade and by hex clusters
-    - decrease_decade_merged.html: maximum decrease by decade and by hex clusters
+    - 'merged_viz.html': dropoffs and increases by 1-5-10 years and by hex clusters
+    - 'increase_decade_merged.html': maximum increase by decade and by hex clusters
+    - 'decrease_decade_merged.html': maximum decrease by decade and by hex clusters
