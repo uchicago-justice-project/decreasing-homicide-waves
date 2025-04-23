@@ -10,7 +10,17 @@
 ## Files & Purposes
 
 ### hom_decrease.ipynb
-**Step 1**:
+**Part 1**: Translate R code into Python <br>
+**Part 2**: Find longest gaps of waves <br>
+<li> Begins line 35 </li>
+<li> Ends line 45 </li>
+
+![download](https://github.com/user-attachments/assets/e349de70-b1e3-490f-a3df-84318f6be8ea)
+
+**Part 3**: Attempt to see correlation between housing projects & homicides <br>
+<li> Begins line 46 </li>
+<li> Ends line 45 </li>
+<li>Note: many caveats, primarily that it only includes projects begininning in 2013 so it doesn't include defunct or demolished projects</li>
 
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
