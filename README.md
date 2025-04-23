@@ -19,8 +19,12 @@
 
 **Part 3**: Attempt to see correlation between housing projects & homicides <br>
 <li> Begins line 46 </li>
-<li> Ends line 45 </li>
+<li> Ends line 67 </li>
 <li>Note: many caveats, primarily that it only includes projects begininning in 2013 so it doesn't include defunct or demolished projects</li>
+
+**Part 4**: Outliers for all hexagons, wave gaps longer than 60 years <br>
+<li> Begins line 46 </li>
+<li> Ends line 67 </li>
 
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
