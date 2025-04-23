@@ -1,11 +1,11 @@
 # decreasing-homicide-waves
 
-| Database | Purpose | Location; Creator; Use |
-|:-----------------------|:-----------------------|:-----------------------|
-| hexhom.csv | Geographic information about each hexagon **geometry**, **year**, **homicides for that year (hom_ct)**, **building count (bldg_cnt)**, **homicide rate (hom_rt)** | Box; UChicago; base_analysis |
-| CHI Community Areas.shp | Current neighborhoods in Chicago, where they're located. Many columns but columns of importance are **COMMUNITY** and **geometry** (and maybe shape area and shape length) | data/Community Areas Shapefiles/CHI Community Areas.shp |
-| cluster_assignments.csv | extended cluster column (this is based on trajectory analysis starting in 1870 vs the regular cluster column which was based on the analysis starting in 1940) | Slack; David; TBD |
-| Affordable_Rental_Housing_Developments_20250212.csv | Chicago Affordable Housing | [Data from Chicago Housing Data Portal](https://data.cityofchicago.org/Community-Economic-Development/Affordable-Rental-Housing-Developments/s6ha-ppgi/about_data) |
+| Database | Purpose | Location; Creator | Key Use |
+|:-----------------------|:-----------------------|:-----------------------|:-------|
+| hex_hom_bldg.shp| Geographic information about each hexagon **geometry**, **year**, **homicides for that year (hom_ct)**, **building count (bldg_cnt)**, **homicide rate (hom_rt)** | Jada_Hexagons | Any analysis with hexagon base |
+| CHI Community Areas.shp | Current neighborhoods in Chicago, where they're located. Many columns but columns of importance are **COMMUNITY** and **geometry** (and maybe shape area and shape length) | comm_area_shapefiles | neighborhood-level analysis |
+| cluster_assignments.csv | extended cluster column (this is based on trajectory analysis starting in 1870 vs the regular cluster column which was based on the analysis starting in 1940) | Slack; David; TBD | To answer key questions regarding clusters in Hexagons |
+| Affordable_Rental_Housing_Developments_20250212.csv | Chicago Affordable Housing | [Data from Chicago Housing Data Portal](https://data.cityofchicago.org/Community-Economic-Development/Affordable-Rental-Housing-Developments/s6ha-ppgi/about_data) | Used as an initial attempt to find patterns with affordable housing & homicides |
 
 ## Files & Purposes
 
@@ -24,189 +24,190 @@ viz/ *.html: the only important ones you should care about: <br>
 ## Everything
 
 ```
-├── Affordable_Rental_Housing_Developments_20250212.csv
-├── IndividualHomicides_1965_2022.csv
-├── Jada_Hexagons
-│   ├── HexHom2024.R
-│   ├── HexHom2024.R:Zone.Identifier
-│   ├── hex_hom_bldg.dbf
-│   ├── hex_hom_bldg.prj
-│   ├── hex_hom_bldg.shp
-│   └── hex_hom_bldg.shx
-├── README.md
-├── alt.LayerChart(...).json
-├── cha_projects.geojson
-├── chicago_hexagons_with_wards_join.shp
-├── chicago_hexagons_with_wards_join.shx
-├── cluster_assignments.csv
-├── comm_area_shapefiles
-│   ├── CHI Community Areas.cpg
-│   ├── CHI Community Areas.dbf
-│   ├── CHI Community Areas.prj
-│   ├── CHI Community Areas.sbn
-│   ├── CHI Community Areas.sbx
-│   ├── CHI Community Areas.shp
-│   └──  CHI Community Areas.shx
+# IGNORE // IMPORTANT
+
+├── Affordable_Rental_Housing_Developments_20250212.csv # IGNORE 
+├── IndividualHomicides_1965_2022.csv # IMPORTANT 
+├── Jada_Hexagons 
+│   ├── HexHom2024.R  # IGNORE 
+│   ├── hex_hom_bldg.dbf # IMPORTANT 
+│   ├── hex_hom_bldg.prj # IMPORTANT 
+│   ├── hex_hom_bldg.shp # IMPORTANT 
+│   └── hex_hom_bldg.shx # IMPORTANT 
+├── README.md # IMPORTANT 
+├── alt.LayerChart(...).json # VIZ SUPPLEMENT
+├── cha_projects.geojson # IGNORE // IMPORTANT
+├── chicago_hexagons_with_wards_join.shp # IGNORE // IMPORTANT
+├── chicago_hexagons_with_wards_join.shx # IGNORE // IMPORTANT
+├── cluster_assignments.csv # IMPORTANT
+├── comm_area_shapefiles 
+│   ├── CHI Community Areas.cpg # IMPORTANT
+│   ├── CHI Community Areas.dbf # IMPORTANT
+│   ├── CHI Community Areas.prj # IMPORTANT
+│   ├── CHI Community Areas.sbn # IMPORTANT
+│   ├── CHI Community Areas.sbx # IMPORTANT
+│   ├── CHI Community Areas.shp # IMPORTANT
+│   └──  CHI Community Areas.shx # IMPORTANT
 ├── dir_dist
-│   ├── 1870_2022.gif
-│   ├── 1874_1930.gif
-│   ├── 1874_1964.gif
-│   ├── 1940_1964.gif
-│   ├── 1940_2022.gif
-│   ├── dist_1870.png
-│   ├── dist_1871.png
-│   ├── dist_1872.png
-│   ├── dist_1873.png
-│   ├── dist_1874.png
-│   ├── dist_1875.png
-│   ├── dist_1876.png
-│   ├── dist_1877.png
-│   ├── dist_1878.png
-│   ├── dist_1879.png
-│   ├── dist_1880.png
-│   ├── dist_1881.png
-│   ├── dist_1882.png
-│   ├── dist_1883.png
-│   ├── dist_1884.png
-│   ├── dist_1885.png
-│   ├── dist_1886.png
-│   ├── dist_1887.png
-│   ├── dist_1888.png
-│   ├── dist_1889.png
-│   ├── dist_1890.png
-│   ├── dist_1891.png
-│   ├── dist_1892.png
-│   ├── dist_1893.png
-│   ├── dist_1894.png
-│   ├── dist_1895.png
-│   ├── dist_1896.png
-│   ├── dist_1897.png
-│   ├── dist_1898.png
-│   ├── dist_1899.png
-│   ├── dist_1900.png
-│   ├── dist_1901.png
-│   ├── dist_1902.png
-│   ├── dist_1903.png
-│   ├── dist_1904.png
-│   ├── dist_1905.png
-│   ├── dist_1906.png
-│   ├── dist_1907.png
-│   ├── dist_1908.png
-│   ├── dist_1909.png
-│   ├── dist_1910.png
-│   ├── dist_1911.png
-│   ├── dist_1912.png
-│   ├── dist_1913.png
-│   ├── dist_1914.png
-│   ├── dist_1915.png
-│   ├── dist_1916.png
-│   ├── dist_1917.png
-│   ├── dist_1918.png
-│   ├── dist_1919.png
-│   ├── dist_1920.png
-│   ├── dist_1921.png
-│   ├── dist_1922.png
-│   ├── dist_1923.png
-│   ├── dist_1924.png
-│   ├── dist_1925.png
-│   ├── dist_1926.png
-│   ├── dist_1927.png
-│   ├── dist_1928.png
-│   ├── dist_1929.png
-│   ├── dist_1930.png
-│   ├── dist_1931.png
-│   ├── dist_1932.png
-│   ├── dist_1933.png
-│   ├── dist_1934.png
-│   ├── dist_1935.png
-│   ├── dist_1936.png
-│   ├── dist_1937.png
-│   ├── dist_1938.png
-│   ├── dist_1939.png
-│   ├── dist_1940.png
-│   ├── dist_1941.png
-│   ├── dist_1942.png
-│   ├── dist_1943.png
-│   ├── dist_1944.png
-│   ├── dist_1945.png
-│   ├── dist_1946.png
-│   ├── dist_1947.png
-│   ├── dist_1948.png
-│   ├── dist_1949.png
-│   ├── dist_1950.png
-│   ├── dist_1951.png
-│   ├── dist_1952.png
-│   ├── dist_1953.png
-│   ├── dist_1954.png
-│   ├── dist_1955.png
-│   ├── dist_1956.png
-│   ├── dist_1957.png
-│   ├── dist_1958.png
-│   ├── dist_1959.png
-│   ├── dist_1960.png
-│   ├── dist_1961.png
-│   ├── dist_1962.png
-│   ├── dist_1963.png
-│   ├── dist_1964.png
-│   ├── dist_1965.png
-│   ├── dist_1966.png
-│   ├── dist_1967.png
-│   ├── dist_1968.png
-│   ├── dist_1969.png
-│   ├── dist_1970.png
-│   ├── dist_1971.png
-│   ├── dist_1972.png
-│   ├── dist_1973.png
-│   ├── dist_1974.png
-│   ├── dist_1975.png
-│   ├── dist_1976.png
-│   ├── dist_1977.png
-│   ├── dist_1978.png
-│   ├── dist_1979.png
-│   ├── dist_1980.png
-│   ├── dist_1981.png
-│   ├── dist_1982.png
-│   ├── dist_1983.png
-│   ├── dist_1984.png
-│   ├── dist_1985.png
-│   ├── dist_1986.png
-│   ├── dist_1987.png
-│   ├── dist_1988.png
-│   ├── dist_1989.png
-│   ├── dist_1990.png
-│   ├── dist_1991.png
-│   ├── dist_1992.png
-│   ├── dist_1993.png
-│   ├── dist_1994.png
-│   ├── dist_1995.png
-│   ├── dist_1996.png
-│   ├── dist_1997.png
-│   ├── dist_1998.png
-│   ├── dist_1999.png
-│   ├── dist_2000.png
-│   ├── dist_2001.png
-│   ├── dist_2002.png
-│   ├── dist_2003.png
-│   ├── dist_2004.png
-│   ├── dist_2005.png
-│   ├── dist_2006.png
-│   ├── dist_2007.png
-│   ├── dist_2008.png
-│   ├── dist_2009.png
-│   ├── dist_2010.png
-│   ├── dist_2011.png
-│   ├── dist_2012.png
-│   ├── dist_2013.png
-│   ├── dist_2014.png
-│   ├── dist_2015.png
-│   ├── dist_2016.png
-│   ├── dist_2017.png
-│   ├── dist_2018.png
-│   ├── dist_2019.png
-│   ├── dist_2020.png
-│   ├── dist_2021.png
-│   └── dist_2022.png
-├── gap_outliers.csv
+│   ├── 1870_2022.gif # IMPORTANT
+│   ├── 1874_1930.gif # IMPORTANT
+│   ├── 1874_1964.gif # IMPORTANT
+│   ├── 1940_1964.gif # IMPORTANT
+│   ├── 1940_2022.gif # IMPORTANT
+│   ├── dist_1870.png  # IGNORE 
+│   ├── dist_1871.png  # IGNORE 
+│   ├── dist_1872.png  # IGNORE 
+│   ├── dist_1873.png  # IGNORE 
+│   ├── dist_1874.png  # IGNORE 
+│   ├── dist_1875.png  # IGNORE 
+│   ├── dist_1876.png  # IGNORE 
+│   ├── dist_1877.png  # IGNORE 
+│   ├── dist_1878.png  # IGNORE 
+│   ├── dist_1879.png  # IGNORE 
+│   ├── dist_1880.png  # IGNORE 
+│   ├── dist_1881.png  # IGNORE 
+│   ├── dist_1882.png  # IGNORE 
+│   ├── dist_1883.png  # IGNORE 
+│   ├── dist_1884.png  # IGNORE 
+│   ├── dist_1885.png  # IGNORE 
+│   ├── dist_1886.png  # IGNORE 
+│   ├── dist_1887.png  # IGNORE 
+│   ├── dist_1888.png  # IGNORE 
+│   ├── dist_1889.png  # IGNORE 
+│   ├── dist_1890.png  # IGNORE 
+│   ├── dist_1891.png  # IGNORE 
+│   ├── dist_1892.png  # IGNORE 
+│   ├── dist_1893.png  # IGNORE 
+│   ├── dist_1894.png  # IGNORE 
+│   ├── dist_1895.png  # IGNORE 
+│   ├── dist_1896.png  # IGNORE 
+│   ├── dist_1897.png  # IGNORE 
+│   ├── dist_1898.png  # IGNORE 
+│   ├── dist_1899.png  # IGNORE 
+│   ├── dist_1900.png  # IGNORE 
+│   ├── dist_1901.png  # IGNORE 
+│   ├── dist_1902.png  # IGNORE 
+│   ├── dist_1903.png  # IGNORE 
+│   ├── dist_1904.png  # IGNORE 
+│   ├── dist_1905.png  # IGNORE 
+│   ├── dist_1906.png  # IGNORE 
+│   ├── dist_1907.png  # IGNORE 
+│   ├── dist_1908.png  # IGNORE 
+│   ├── dist_1909.png  # IGNORE 
+│   ├── dist_1910.png  # IGNORE 
+│   ├── dist_1911.png  # IGNORE 
+│   ├── dist_1912.png  # IGNORE 
+│   ├── dist_1913.png  # IGNORE 
+│   ├── dist_1914.png  # IGNORE 
+│   ├── dist_1915.png  # IGNORE 
+│   ├── dist_1916.png  # IGNORE 
+│   ├── dist_1917.png  # IGNORE 
+│   ├── dist_1918.png  # IGNORE 
+│   ├── dist_1919.png  # IGNORE 
+│   ├── dist_1920.png  # IGNORE 
+│   ├── dist_1921.png  # IGNORE 
+│   ├── dist_1922.png  # IGNORE 
+│   ├── dist_1923.png  # IGNORE 
+│   ├── dist_1924.png  # IGNORE 
+│   ├── dist_1925.png  # IGNORE 
+│   ├── dist_1926.png  # IGNORE 
+│   ├── dist_1927.png  # IGNORE 
+│   ├── dist_1928.png  # IGNORE 
+│   ├── dist_1929.png  # IGNORE 
+│   ├── dist_1930.png  # IGNORE 
+│   ├── dist_1931.png  # IGNORE 
+│   ├── dist_1932.png  # IGNORE 
+│   ├── dist_1933.png  # IGNORE 
+│   ├── dist_1934.png  # IGNORE 
+│   ├── dist_1935.png  # IGNORE 
+│   ├── dist_1936.png  # IGNORE 
+│   ├── dist_1937.png  # IGNORE 
+│   ├── dist_1938.png  # IGNORE 
+│   ├── dist_1939.png  # IGNORE 
+│   ├── dist_1940.png  # IGNORE 
+│   ├── dist_1941.png  # IGNORE 
+│   ├── dist_1942.png  # IGNORE 
+│   ├── dist_1943.png  # IGNORE 
+│   ├── dist_1944.png  # IGNORE 
+│   ├── dist_1945.png  # IGNORE 
+│   ├── dist_1946.png  # IGNORE 
+│   ├── dist_1947.png  # IGNORE 
+│   ├── dist_1948.png  # IGNORE 
+│   ├── dist_1949.png  # IGNORE 
+│   ├── dist_1950.png  # IGNORE 
+│   ├── dist_1951.png  # IGNORE 
+│   ├── dist_1952.png  # IGNORE 
+│   ├── dist_1953.png  # IGNORE 
+│   ├── dist_1954.png  # IGNORE 
+│   ├── dist_1955.png  # IGNORE 
+│   ├── dist_1956.png  # IGNORE 
+│   ├── dist_1957.png  # IGNORE 
+│   ├── dist_1958.png  # IGNORE 
+│   ├── dist_1959.png  # IGNORE 
+│   ├── dist_1960.png  # IGNORE 
+│   ├── dist_1961.png  # IGNORE 
+│   ├── dist_1962.png  # IGNORE 
+│   ├── dist_1963.png  # IGNORE 
+│   ├── dist_1964.png  # IGNORE 
+│   ├── dist_1965.png  # IGNORE 
+│   ├── dist_1966.png  # IGNORE 
+│   ├── dist_1967.png  # IGNORE 
+│   ├── dist_1968.png  # IGNORE 
+│   ├── dist_1969.png  # IGNORE 
+│   ├── dist_1970.png  # IGNORE 
+│   ├── dist_1971.png  # IGNORE 
+│   ├── dist_1972.png  # IGNORE 
+│   ├── dist_1973.png  # IGNORE 
+│   ├── dist_1974.png  # IGNORE 
+│   ├── dist_1975.png  # IGNORE 
+│   ├── dist_1976.png  # IGNORE 
+│   ├── dist_1977.png  # IGNORE 
+│   ├── dist_1978.png  # IGNORE 
+│   ├── dist_1979.png  # IGNORE 
+│   ├── dist_1980.png  # IGNORE 
+│   ├── dist_1981.png  # IGNORE 
+│   ├── dist_1982.png  # IGNORE 
+│   ├── dist_1983.png  # IGNORE 
+│   ├── dist_1984.png  # IGNORE 
+│   ├── dist_1985.png  # IGNORE 
+│   ├── dist_1986.png  # IGNORE 
+│   ├── dist_1987.png  # IGNORE 
+│   ├── dist_1988.png  # IGNORE 
+│   ├── dist_1989.png  # IGNORE 
+│   ├── dist_1990.png  # IGNORE 
+│   ├── dist_1991.png  # IGNORE 
+│   ├── dist_1992.png  # IGNORE 
+│   ├── dist_1993.png  # IGNORE 
+│   ├── dist_1994.png  # IGNORE 
+│   ├── dist_1995.png  # IGNORE 
+│   ├── dist_1996.png  # IGNORE 
+│   ├── dist_1997.png  # IGNORE 
+│   ├── dist_1998.png  # IGNORE 
+│   ├── dist_1999.png  # IGNORE 
+│   ├── dist_2000.png  # IGNORE 
+│   ├── dist_2001.png  # IGNORE 
+│   ├── dist_2002.png  # IGNORE 
+│   ├── dist_2003.png  # IGNORE 
+│   ├── dist_2004.png  # IGNORE 
+│   ├── dist_2005.png  # IGNORE 
+│   ├── dist_2006.png  # IGNORE 
+│   ├── dist_2007.png  # IGNORE 
+│   ├── dist_2008.png  # IGNORE 
+│   ├── dist_2009.png  # IGNORE 
+│   ├── dist_2010.png  # IGNORE 
+│   ├── dist_2011.png  # IGNORE 
+│   ├── dist_2012.png  # IGNORE 
+│   ├── dist_2013.png  # IGNORE 
+│   ├── dist_2014.png  # IGNORE 
+│   ├── dist_2015.png  # IGNORE 
+│   ├── dist_2016.png  # IGNORE 
+│   ├── dist_2017.png  # IGNORE 
+│   ├── dist_2018.png  # IGNORE 
+│   ├── dist_2019.png  # IGNORE 
+│   ├── dist_2020.png  # IGNORE 
+│   ├── dist_2021.png  # IGNORE 
+│   └── dist_2022.png  # IGNORE 
+├── gap_outliers.csv 
 ├── hexhom.csv
 ├── hom_decrease.ipynb
 ├── hom_decrease_2.ipynb
