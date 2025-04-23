@@ -10,9 +10,12 @@
 ## Files & Purposes
 
 ### hom_decrease.ipynb
-initial examination of homicide waves by longest gap in waves and zoomed in on housing projects as well
+**Step 1**:
 
 ### hom_decrease_2.ipynb
+examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
+
+### hom_decrease_3.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
 
 ### Viz
