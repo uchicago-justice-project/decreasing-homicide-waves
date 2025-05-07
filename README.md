@@ -14,7 +14,16 @@
 **Part 2**: Find longest gaps of waves <br>
 <li> Begins line 35 </li>
 <li> Ends line 45 </li>
-
+Data Formed: <br>
+<li>shapefile = gpd.read_file('Jada_Hexagons/hex_hom_bldg.shp') </li>
+<li>map_data = shapefile.merge(longest_gaps, on="GRID_ID", how="left") </li>
+<li>longest_gaps = wave_metrics.groupby("GRID_ID").agg(
+    last_wave_end=pd.NamedAgg(
+        column="wave_start_year", 
+        aggfunc=lambda x: (x + wave_metrics.loc[x.index, "wave_lifespan"]).max()
+    )
+).reset_index() </li>
+<br>
 ![download](https://github.com/user-attachments/assets/e349de70-b1e3-490f-a3df-84318f6be8ea)
 
 **Part 3**: Attempt to see correlation between housing projects & homicides <br>
@@ -22,7 +31,7 @@
 <li> Ends line 67 </li>
 <li>Note: many caveats, primarily that it only includes projects begininning in 2013 so it doesn't include defunct or demolished projects</li>
 <br>
-Data created: anomaly = map_projects[map_projects['longest_gap'] > 36]
+Data created: anomaly = map_projects[map_projects['longest_gap'] > 36] <br>
 
 **Part 4**: Time series for hexagons where *wave gaps* longer than 60 years <br>
 <li> Begins line 68 </li>
@@ -45,10 +54,23 @@ Data for below graph: top_amp = wave_metrics[wave_metrics['max_amp']>19]
 **Part 6**: Checking overlap of hexagons with a gap longer than 36 years, <br>
 <li> Begins line 80 </li>
 <li> Ends line 82 </li>
-
+<br>
+top_amp = wave_metrics[wave_metrics['max_amp']>19] <br>
+outlier = map_data[map_data['longest_gap'] > 60] <br>
+anomaly = map_projects[map_projects['longest_gap'] > 36] <br>
 ![download-1](https://github.com/user-attachments/assets/c46cd73d-9da2-47f5-95bb-b8fe629b2b15)
 
+*Finding*: project anomalies that are also chicago outliers: V-8, AH-14
 
+**Part 7**: Post Depression: Places with gaps in homicides after the depression
+<br>
+post_depression = map_data.copy() <br>
+post_dep_outlier = post_depression[post_depression['longest_gap'] >= 50] <br>
+
+![download](https://github.com/user-attachments/assets/d3f1a661-43c0-46c8-9830-e9d1c7541fbb)
+![download](https://github.com/user-attachments/assets/13dc3bc5-627e-4b80-93d0-6e2416b4e49c)
+
+AK-18 --> Douglas <br>
 
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
