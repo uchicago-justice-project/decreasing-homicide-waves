@@ -77,6 +77,11 @@ AK-18 --> Douglas <br>
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
 
+**Part 1**: Map David's housing projects with Longest Gaps without a Homicide Wave
+![download](https://github.com/user-attachments/assets/e5dacbe8-1428-4e01-8c6a-bc7e719060c7)
+![download](https://github.com/user-attachments/assets/64270972-dfb4-4c78-90e2-95c32ee4026e)
+
+
 ### hom_decrease_3.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
 
