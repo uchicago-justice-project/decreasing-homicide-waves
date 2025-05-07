@@ -21,10 +21,34 @@
 <li> Begins line 46 </li>
 <li> Ends line 67 </li>
 <li>Note: many caveats, primarily that it only includes projects begininning in 2013 so it doesn't include defunct or demolished projects</li>
+<br>
+Data created: anomaly = map_projects[map_projects['longest_gap'] > 36]
 
-**Part 4**: Outliers for all hexagons, wave gaps longer than 60 years <br>
-<li> Begins line 46 </li>
-<li> Ends line 67 </li>
+**Part 4**: Time series for hexagons where *wave gaps* longer than 60 years <br>
+<li> Begins line 68 </li>
+<li> Ends line 71 </li>
+<br>
+Data for below graphs: outlier = map_data[map_data['longest_gap'] > 60]
+
+![download](https://github.com/user-attachments/assets/d27e0951-957f-4573-b8d7-b08dc51077cd)
+
+![download-1](https://github.com/user-attachments/assets/ae05f034-699d-4f85-ad0a-87b3be828bd2)
+
+**Part 5**: *wave amplitude* is greater than 19 at some point in time series <br>
+<li> Begins line 72 </li>
+<li> Ends line 79 </li>
+<br>
+Data for below graph: top_amp = wave_metrics[wave_metrics['max_amp']>19]
+
+![download-1](https://github.com/user-attachments/assets/9f55d045-1ad6-43ef-aeab-b37175d43732)
+
+**Part 6**: Checking overlap of hexagons with a gap longer than 36 years, <br>
+<li> Begins line 80 </li>
+<li> Ends line 82 </li>
+
+![download-1](https://github.com/user-attachments/assets/c46cd73d-9da2-47f5-95bb-b8fe629b2b15)
+
+
 
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
