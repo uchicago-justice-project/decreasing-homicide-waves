@@ -24,7 +24,9 @@ Data Formed: <br>
     )
 ).reset_index() </li>
 <br>
-![download](https://github.com/user-attachments/assets/e349de70-b1e3-490f-a3df-84318f6be8ea)
+
+![download](https://github.com/user-attachments/assets/c9d0089c-93b3-4ceb-aced-37c20d48cf4d)
+
 
 **Part 3**: Attempt to see correlation between housing projects & homicides <br>
 <li> Begins line 46 </li>
@@ -50,6 +52,8 @@ Data for below graphs: outlier = map_data[map_data['longest_gap'] > 60]
 Data for below graph: top_amp = wave_metrics[wave_metrics['max_amp']>19]
 
 ![download-1](https://github.com/user-attachments/assets/9f55d045-1ad6-43ef-aeab-b37175d43732)
+<img width="756" alt="Screenshot 2025-05-07 at 12 45 01 PM" src="https://github.com/user-attachments/assets/bb4a971d-7f87-4087-9b47-70638da2aea6" />
+
 
 **Part 6**: Checking overlap of hexagons with a gap longer than 36 years, <br>
 <li> Begins line 80 </li>
@@ -58,8 +62,6 @@ Data for below graph: top_amp = wave_metrics[wave_metrics['max_amp']>19]
 top_amp = wave_metrics[wave_metrics['max_amp']>19] <br>
 outlier = map_data[map_data['longest_gap'] > 60] <br>
 anomaly = map_projects[map_projects['longest_gap'] > 36] <br>
-![download-1](https://github.com/user-attachments/assets/c46cd73d-9da2-47f5-95bb-b8fe629b2b15)
-
 *Finding*: project anomalies that are also chicago outliers: V-8, AH-14
 
 **Part 7**: Post Depression: Places with gaps in homicides after the depression
@@ -74,6 +76,11 @@ AK-18 --> Douglas <br>
 
 ### hom_decrease_2.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
+
+**Part 1**: Map David's housing projects with Longest Gaps without a Homicide Wave
+![download](https://github.com/user-attachments/assets/e5dacbe8-1428-4e01-8c6a-bc7e719060c7)
+![download](https://github.com/user-attachments/assets/64270972-dfb4-4c78-90e2-95c32ee4026e)
+
 
 ### hom_decrease_3.ipynb
 examination of wave intensity, 1-5-10 year dropoff and increases in homicide; also code producing *.html
